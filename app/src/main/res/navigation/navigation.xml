@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/gameFragment">
+
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.arun.androidtutsforu.demonavigation.game.GameFragment"
+        android:label="Game"
+        tools:layout="@layout/fragment_game">
+        <action
+            android:id="@+id/action_gameFragment_to_scoreFragment"
+            app:destination="@id/scoreFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/scoreFragment"
+        android:name="com.arun.androidtutsforu.demonavigation.score.ScoreFragment"
+        android:label="Score"
+        tools:layout="@layout/fragment_score">
+        <action
+            android:id="@+id/action_scoreFragment_to_gameWonFragment"
+            app:destination="@id/gameWonFragment"
+            app:popUpTo="@id/scoreFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_scoreFragment_to_gameOverFragment"
+            app:destination="@id/gameOverFragment"
+            app:popUpTo="@id/scoreFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameOverFragment"
+        android:name="com.arun.androidtutsforu.demonavigation.result.GameOverFragment"
+        android:label="GameOver"
+        tools:layout="@layout/fragment_game_over" >
+        <action
+            android:id="@+id/action_gameOverFragment_to_gameFragment"
+            app:destination="@id/gameFragment"
+            app:popUpTo="@id/gameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameWonFragment"
+        android:name="com.arun.androidtutsforu.demonavigation.result.GameWonFragment"
+        android:label="GameWon"
+        tools:layout="@layout/fragment_game_won" >
+        <argument
+            android:name="score"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_gameWonFragment_to_gameFragment"
+            app:destination="@id/gameFragment"
+            app:popUpTo="@id/gameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.arun.androidtutsforu.demonavigation.menuitems.AboutFragment"
+        android:label="About"
+        tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/rulesFragment"
+        android:name="com.arun.androidtutsforu.demonavigation.menuitems.RulesFragment"
+        android:label="fragment_rules"
+        tools:layout="@layout/fragment_rules" />
+</navigation>
